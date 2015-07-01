@@ -5,7 +5,7 @@ och ska bland annat användas för att utvärdera dFlow på Uppsala universitets
 Funktionalitet:
 * Grundinstallation av dFlow under Phusion/passenger
 * Databas konfiguration för dFlow med PostgreSQL och rake
-* Obs! Ingen permanent lagrin i dagsläget
+* Obs! Ingen permanent lagring i dagsläget
 
 #Användning
 Använd docker från ./dFlow:

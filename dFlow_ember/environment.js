@@ -26,8 +26,8 @@ module.exports = function(environment) {
 		// ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
 		ENV.APP.LOG_VIEW_LOOKUPS = true;
 		ENV.contentSecurityPolicyHeader = 'Disabled-Content-Security-Policy';
-		ENV.APP.authenticationBaseURL = 'http://192.168.49.129/session';
-		ENV.APP.serviceURL = 'http://192.168.49.129';
+		ENV.APP.authenticationBaseURL = './session';
+		ENV.APP.serviceURL = '.';
     }
     
     if (environment === 'test') {
@@ -48,8 +48,8 @@ module.exports = function(environment) {
     }
 
     if (environment === 'production-test') {
-	  ENV.APP.authenticationBaseURL = 'http://192.168.49.129/session';
-	  ENV.APP.serviceURL = 'http://192.168.49.129/';
+	  ENV.APP.authenticationBaseURL = './session';
+	  ENV.APP.serviceURL = './';
     }
 
     return ENV;

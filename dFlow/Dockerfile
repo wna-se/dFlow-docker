@@ -21,6 +21,8 @@ RUN rm /etc/nginx/sites-enabled/default
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+RUN mv /opt/dflow/config/passwd.sample /opt/dflow/config/passwd
+
 CMD ["/sbin/my_init"]
 
 EXPOSE 80

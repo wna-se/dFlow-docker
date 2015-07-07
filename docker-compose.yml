@@ -1,10 +1,21 @@
-# Build the image: docker build -t dflow .
+# Build the images: 
+# docker build -t dflowember dFlow_ember
+# docker build -t dflow dFlow
 # Run a demo environment: docker-compose up -d
 # Stop the demo environment: docker-compose stop 
 # Clear the demo environment: docker-compose rm
 # 
 # To access logs you can use docker exec <container id> -ti bash or add volumes to the containers
 
+dflowember:
+  image: dflowember
+  command: ember serve --port 80 --environment production --proxy http://dflow --live-reload false
+  links:
+    - dflow
+  environment:
+    - DFLOW_URL=.
+  ports:
+    - 80:80
 dflow:
   image: dflow
   links:
@@ -19,10 +30,7 @@ dflow:
     - DB_PORT=5432
     - SECRET_KEY_BASE=f4533d10f31eb6dbf953123a4f6e8d85e5e4d0dfd7bb19bbc1cc5838d76a4598254e72182d235a2dd81cdbf3670f5ee8947377b8ffb803a81ad632dbc20b196f
   ports:
-    - 80:80
-#  volumes:
-#    - /var/containerdata/dFlow/logs/dflow:/opt/dflow/log/ # Requires mapping permissions to the passenger user uid (app 9999)
-#    - /var/containerdata/dFlow/logs/nginx:/var/log/nginx/
+    - 3000:80
 dflowrakedbsetup:
   image: dflow
   working_dir: /opt/dflow
@@ -37,9 +45,6 @@ dflowrakedbsetup:
     - DB_HOST=postgres
     - DB_PORT=5432
     - SECRET_KEY_BASE=f4533d10f31eb6dbf953123a4f6e8d85e5e4d0dfd7bb19bbc1cc5838d76a4598254e72182d235a2dd81cdbf3670f5ee8947377b8ffb803a81ad632dbc20b196f
-#  volumes:
-#    - /var/containerdata/dFlow/logs/dflow:/opt/dflow/log/ # Requires mapping permissions to the passenger user uid (app 9999)
-#    - /var/containerdata/dFlow/logs/nginx:/var/log/nginx/
 database:
   image: postgres
   environment:

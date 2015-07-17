@@ -20,3 +20,6 @@ Resultat:
 * dFlow startas med passenger och exponeras på port 3000
 * dFile startas med passenger och exponeras på port 3001
 * dFlow_ember startas med ember-cli och exponeras på port 80 (proxy för dFlow)
+
+# Att göra
+* Autentisering via SSO (CAS eller Shibboleth) alternativt skirva ett eget lager (LDAP)

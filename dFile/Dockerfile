@@ -1,4 +1,4 @@
-FROM phusion/passenger-ruby21
+FROM phusion/passenger-ruby21:0.9.15
 
 ENV HOME=/root
 WORKDIR /tmp
